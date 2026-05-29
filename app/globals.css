@@ -17,7 +17,8 @@
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* scroll-behavior: smooth is handled by Lenis — keep native instant */
+html { scroll-behavior: auto; }
 
 body {
   font-family: var(--font-inter), sans-serif;

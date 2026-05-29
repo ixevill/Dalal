@@ -63,15 +63,16 @@ const PRODUCTS = [
 ───────────────────────────────────────────────────────── */
 function ProductCard({ p, index }: { p: typeof PRODUCTS[0]; index: number }) {
   const [hov, setHov] = useState(false);
-  const ref    = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const cardRef = useRef(null);
+  const ref     = cardRef;
+  const inView  = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
+      initial={{ opacity: 0, scale: 0.85, y: 20 }}
+      animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: index * 0.10 }}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       dir="rtl"
@@ -175,32 +176,32 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" style={{ background: "#E8E5DF" }}>
-      <div className="max-w-screen-xl mx-auto px-8 md:px-16 lg:px-24 py-28 md:py-40">
+      <div className="max-w-screen-xl mx-auto px-8 md:px-16 lg:px-24 py-40 md:py-52">
 
         {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          style={{ marginBottom: "4rem" }}
+          initial={{ opacity: 0, y: 32, scale: 0.97 }}
+          animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          style={{ marginBottom: "5rem" }}
           dir="rtl"
         >
-          <p className="section-label" style={{ color: "var(--gold)", marginBottom: "1.25rem" }}>
+          <p className="section-label" style={{ color: "var(--gold)", marginBottom: "1.5rem" }}>
             03 — Portfolio
           </p>
           <h2 style={{
             fontFamily:    "var(--font-cormorant), serif",
             fontWeight:    300,
-            fontSize:      "clamp(36px, 5vw, 64px)",
+            fontSize:      "clamp(44px, 6vw, 90px)",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
             color:         "#1C1C1C",
-            lineHeight:    1.05,
+            lineHeight:    1.0,
           }}>
             أعمالي
           </h2>
-          <div style={{ width: 48, height: "0.5px", background: "var(--gold)", marginTop: "2rem" }} />
+          <div style={{ width: 48, height: "0.5px", background: "var(--gold)", marginTop: "2.5rem" }} />
         </motion.div>
 
         {/* Photo grid */}

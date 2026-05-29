@@ -5,6 +5,7 @@ import {
   Tajawal,
 } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -51,7 +52,10 @@ export default function RootLayout({
       dir="rtl"
       className={`${cormorant.variable} ${inter.variable} ${tajawal.variable}`}
     >
-      <body className="bg-white text-noir antialiased">{children}</body>
+      <body className="bg-white text-noir antialiased">
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }
