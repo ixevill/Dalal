@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --white:      #FFFFFF;
+  --ivory:      #F5F4F0;
+  --linen:      #E8E5DF;
+  --warm-gray:  #C9C5BC;
+  --charcoal:   #5C5852;
+  --noir:       #1C1C1C;
+  --gold-light: #E8D5B0;
+  --gold:       #C9A96E;
+  --gold-deep:  #9A7A45;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--noir);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Custom cursor — hide default on fine-pointer devices ── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+/* ── Typography helpers ── */
+.font-cormorant  { font-family: var(--font-cormorant), serif; }
+.font-inter      { font-family: var(--font-inter), sans-serif; }
+.font-tajawal    { font-family: var(--font-tajawal), sans-serif; }
+
+/* ── Gold hairline ── */
+.gold-rule { height: 0.5px; background: var(--gold); }
+
+/* ── Section label (Inter 500, caps, wide tracking) ── */
+.section-label {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.30em;
+  font-size: 9px;
+}
+
+/* ── Heading ── */
+.heading {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* ── Booking form fields — light background ── */
+.booking-input {
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid var(--warm-gray);
+  border-radius: 0;
+  color: var(--noir);
+  font-family: var(--font-tajawal), sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 14px 0;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.4s ease;
+}
+.booking-input::placeholder { color: var(--warm-gray); }
+.booking-input:focus        { border-bottom-color: var(--gold); }
+.booking-input option       { background: var(--white); color: var(--noir); }
+
+/* ── Service card hover lift ── */
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              background 0.4s ease,
+              border-color 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 2px; }
+::-webkit-scrollbar-track { background: var(--linen); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
+/* ── Selection ── */
+::selection { background: var(--gold); color: var(--white); }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+  }
+}
