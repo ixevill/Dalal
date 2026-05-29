@@ -29,7 +29,7 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 }
 
 /* Simple magnetic wrapper — easeOut only, no spring */
-function MagneticButton({ children, style, ...rest }: React.ComponentPropsWithoutRef<"div">) {
+function MagneticButton({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null);
   const [xy, setXy] = useState({ x: 0, y: 0 });
 
@@ -50,7 +50,6 @@ function MagneticButton({ children, style, ...rest }: React.ComponentPropsWithou
       animate={{ x: xy.x, y: xy.y }}
       transition={{ duration: 0.35, ease: "easeOut" }}
       style={{ display: "contents", ...style }}
-      {...rest}
     >
       {children}
     </motion.div>
